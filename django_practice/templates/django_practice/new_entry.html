@@ -1,0 +1,14 @@
+{% extends "django_practice/base.html" %}
+
+{% block content %}
+
+<p><a href="{% url 'django_practice:topic' topic.id %}">{{ topic }}</a></p>
+
+<p>Добавить новую запись</p>
+<form action="{% url 'django_practice:new_entry' topic.id %}" method='post'>
+{% csrf_token %}
+{{ form.as_p }}
+<button name="submit" >Добавить запись</button>
+</form>
+
+{% endblock content %}

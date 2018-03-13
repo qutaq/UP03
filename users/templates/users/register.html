@@ -1,0 +1,10 @@
+{% extends "django_practice/base.html" %}
+
+{% block content %}
+    <form action="{% url 'users:register' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" >register</button>
+        <input type="hidden" name="next" value="{% url 'django_practice:index' %}">
+    </form>
+{% endblock content %}
